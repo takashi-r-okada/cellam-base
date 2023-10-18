@@ -13,21 +13,54 @@ mlflow-run-name: calc-time-dev
 # 時間発展の設定
 # ------------------------------------------------------------
 
-T: 400
+T: 300 # 400
+time-dev-rule: life-game
 
 
 # ------------------------------------------------------------
 # 初期世界生成・読み込み設定
 # ------------------------------------------------------------
 
-L: 300
+L: 200
 # initial-world-mat-fn: ""
-initial-alive-prob: 0.1
+initial-alive-prob: 0.02
 
 
-yrange: [100, 200]
-xrange: [100, 200]
+# yrange: [100, 200]
+# xrange: [100, 200]
+yrange: [50, 250]
+xrange: [50, 250]
+
+custom-initial-array: [[0, 1, 0], [1, 1, 0], [0, 1, 1]] # コメントアウトするとランダムで値を振る
 
 
 
+# ------------------------------------------------------------
+# 図示設定
+# ------------------------------------------------------------
+
+# 2d random life game な時の例
+display-method:
+  type: trace-taxon-cmap
+
+  space-boundary: [0.125, 0.875]
+  # space-boundary: [0.25, 0.75]
+  zoom-factor: 2.
+  start-epoch: 0
+  stop-epoch: 400
+
+  nColor: 16 # 背景を含めた塗り分け色数
+
+  fps: 5
+
+  q: 0.005 # taxon のクラスをランダムに変更する確率。
+
+  draw-green-rect: false
+
+
+
+
+# # 2d 剰余拡散な時の例
+# display-method:
+#   type: naive-cmap
 
